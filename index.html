@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/swiper-bundle.css" rel="stylesheet" />
+    <link href="css/offcanvas.css" rel="stylesheet" />
+    <link rel="icon" href="img/favicons/favicon.svg" />
+    <title>miHome | Tus links en un solo lugar.</title>
+    <style>
+      body {
+        padding-top: 2rem;
+        background-image: url('img/norbert-kowalczyk-o99IHyqWjSs-unsplash.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: cover;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      .chip {
+          float: right;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          display: flex;
+      }
+
+      .mimodal{
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(1px);
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+
+    </style>
+  </head>
+  <body onload="startTime()">
+<main class="container">
+
+<div class="row justify-content-md-center py-2">
+  <div class="col-md-auto">
+    <nav class="navbar navbar-expand-lg fixed" style="color: white; border-radius: 25px;background-color: rgba(0, 0, 0, 1); webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(1px);" aria-label="Main navigation">
+  <div class="container-fluid">
+  <a class="navbar-brand text-white" href="./">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
+  <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+</svg> miHome</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+</svg>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" aria-current="page" href="#">Hello</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#modalSocial" data-bs-toggle="modal" data-bs-target="#modalSocial">Social</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#modalEntretenimiento" data-bs-toggle="modal" data-bs-target="#modalEntretenimiento">Entretenimiento</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#modalUtilidades" data-bs-toggle="modal" data-bs-target="#modalUtilidades">Utilidades</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#modalProductividad" data-bs-toggle="modal" data-bs-target="#modalProductividad">Productividad</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#modalCompras" data-bs-toggle="modal" data-bs-target="#modalCompras">Compras</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#modalCreatividad" data-bs-toggle="modal" data-bs-target="#modalCreatividad">Creatividad</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#modalLectura" data-bs-toggle="modal" data-bs-target="#modalLectura">Lectura</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#modalFormacion" data-bs-toggle="modal" data-bs-target="#modalFormacion">Formación</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#modalViajes" data-bs-toggle="modal" data-bs-target="#modalViajes">Viajes</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>  </div>  
+</div>
+
+
+<div class="nav-scroller">
+  <nav class="nav nav-underline fixed justify-content-md-center"  aria-label="Secondary navigation">
+    <a class="nav-link" href="https://facebook.com/" target="_blank">
+      <img src="img/facebook.png" class="img-fluid"/>
+    </a>
+    <a class="nav-link" href="https://instagram.com/" target="_blank">
+      <img src="img/instagram.png" class="img-fluid"/>
+    </a>
+    <a class="nav-link" href="https://www.tiktok.com/es/" target="_blank">
+      <img src="img/tik-tok.png" class="img-fluid"/>
+    </a>
+    <a class="nav-link" href="https://web.whatsapp.com/" target="_blank">
+      <img src="img/whatsapp.png" class="img-fluid"/>
+    </a>
+    <a class="nav-link" href="https://www.messenger.com/" target="_blank">
+      <img src="img/messenger.png" class="img-fluid"/>
+    </a>
+    <a class="nav-link" href="https://web.telegram.org/z/" target="_blank">
+      <img src="img/telegram.png" class="img-fluid"/>
+    </a>
+    <a class="nav-link" href="https://twitter.com/" target="_blank">
+      <img src="img/twitter.png" class="img-fluid"/>
+    </a>
+    <a class="nav-link" href="https://www.youtube.com/" target="_blank">
+      <img src="img/youtube.png" class="img-fluid"/>
+    </a>
+  </nav>
+</div>
+
+<div class="row py-2">
+  <div class="col-md-4">
+    <form class="form-horizontal lead" id="search" method="get" action="https://www.google.com/search" target="_blank">
+      <input type="text" class="form-control form-control-md border border-secondary rounded-pill lead" id="q" name="q" placeholder="Buscar en Google...">
+    </form>
+  </div>  
+</div>
+
+<div class="py-2"></div>
+
+<div class="row justify-content-md-center">
+
+<div class="col-md-2">
+
+      <div class="card text-center text-white bg-primary" style="border-radius: 21px;">
+
+        <span class="badge rounded-pill chip bg-warning" style="color: white; background-color: rgba(0, 0, 0, 1); webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16">
+        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </svg>        </span>
+        <div class="card-body">
+          
+          <span class="display-5">Hola</span>
+          <p class="small">Buen día</p>
+        </div>
+      </div>
+
+      <div class="py-2"></div>
+
+      <div class="card text-center text-white bg-danger" style="border-radius: 21px;">
+        <span class="badge rounded-pill chip" style="color: white; background-color: rgba(0, 0, 0, 1); webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+          </svg>
+        </span>
+        <div class="card-body">
+          <div id="clockdate">
+            <div class="clockdate-wrapper">
+              <div id="clock_time">
+                <span id="clock" class="display-6"></span><span id="sec"></span>
+              </div>
+            </div>
+          </div>
+          <p id="date"></p>
+        </div>
+      </div>
+
+      
+      
+
+
+  </div>
+
+  <div class="col-md-8">
+
+    <div class="swiper-container swiper1">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+              <a href="https://tubitv.com/movies/539511/armados-y-peligrosos-doblado?start=true" target="_blank" class="text-decoration-none text-white">
+                <img src="img/armadosypeligrosos.jpg" class="img-fluid" style="border-radius: 21px;"/>
+              </a>
+              <span class="badge rounded-pill chip" style="color: white; background-color: rgba(0, 0, 0, 1); webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px);">
+                Armados y peligrosos
+              </span>
+        </div>
+      
+        <div class="swiper-slide">
+              <a href="https://tubitv.com/movies/535533/peligro-en-la-monta-a-doblado?start=true" target="_blank" class="text-decoration-none text-white">
+                <img src="img/braven.jpg" class="img-fluid" style="border-radius: 21px;"/>
+              </a>
+              <span class="badge rounded-pill chip" style="color: white; background-color: rgba(0, 0, 0, 1); webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px);">
+                Peligro en la Montaña
+              </span>
+        </div>
+
+        <div class="swiper-slide">
+              <a href="https://www.runtime.tv/shows/continuum" target="_blank" class="text-decoration-none text-white">
+                <img src="img/continuum.jpg" class="img-fluid" style="border-radius: 21px;"/>
+              </a>
+              <span class="badge rounded-pill chip" style="color: white; background-color: rgba(0, 0, 0, 1); webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px);">
+                Continuum
+              </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-2">
+      
+      <div class="card text-white bg-dark" style="border-radius: 21px;">
+
+        <span class="badge rounded-pill chip bg-danger" style="color: white; background-color: rgba(0, 0, 0, 1); webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-music-note-list" viewBox="0 0 16 16">
+            <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+            <path fill-rule="evenodd" d="M12 3v10h-1V3h1z"/>
+            <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z"/>
+            <path fill-rule="evenodd" d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </span>
+        <div class="card-body">
+          
+          <h5 class="card-title">Playlist</h5>
+          <p class="small">
+            <a href="https://www.youtube.com/watch?v=k-Uwww9nta4" class="text-decoration-none text-white" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"></path>
+              </svg> Moenia
+              </a>
+          </p>
+          <p class="small">
+            <a href="https://www.youtube.com/watch?v=ac3HkriqdGQ&list=PLiHUmvXEBnonNHavcdTHCJaWZPHM9KSk9" class="text-decoration-none text-white" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"></path>
+              </svg> Smallville Soundtrack
+              </a>
+          </p>
+          <p class="small">
+            <a href="https://www.youtube.com/watch?v=_3A4JW9RQWM" class="text-decoration-none text-white" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"></path>
+              </svg> 2000's Rock Songs
+              </a>
+          </p>
+        </div>
+      </div>
+
+  </div>
+
+</div> <!-- row -->
+
+<div class="row justify-content-md-center">
+
+    <div class="col-md-12">
+      <span class="badge rounded-pill lead" style="color: white; background-color: rgba(0, 0, 0, 1); webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px);">
+        Favorite Apps
+      </span>
+      <div class="py-2"></div>
+      <div class="swiper-container swiper2">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <a href="https://pluto.tv/es/on-demand" target="_blank">
+              <img src="img/plutotv.jpg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://tubitv.com/home" target="_blank">
+              <img src="img/tubitv.jpg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.vix.com/es-es/canales" target="_blank">
+              <img src="img/vix.jpg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.canela.tv/" target="_blank">
+              <img src="img/canelatv.jpg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.disneyplus.com/es-419/home" target="_blank">
+              <img src="img/disneyplus.jpeg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.netflix.com/browse" target="_blank">
+              <img src="img/netflix.jpg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://play.hbomax.com/page/urn:hbo:page:home?reentered=true&userProfileType=fullUserProfile" target="_blank">
+              <img src="img/hbomax.jpg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.primevideo.com/" target="_blank">
+              <img src="img/prime_video.jpg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.youtube.com/" target="_blank">
+              <img src="img/youtube.jpg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.starplus.com/es-419/home" target="_blank">
+              <img src="img/starplus.jpg" class="img-fluid" alt="..." style="border-radius: 21px;">
+            </a>
+          </div>
+
+        </div>
+        <span class="swiper-button-next"></span>
+        <div class="swiper-button-prev"></div>
+      </div>
+          
+    </div>
+
+  </div>
+
+
+</main><!-- /.container -->
+
+<!-- Social -->
+
+<div class="modal" id="modalSocial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen text-white">
+    <div class="modal-content mimodal">
+      <div class="modal-header" style="border-bottom: 0px solid #dee2e6;">
+        <h5 class="modal-title display-6" id="exampleModalLabel">Social</h5>
+        <a class="nav-link text-white" href="#" data-bs-dismiss="modal">
+          <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="modal" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://facebook.com/" target="_blank">
+                <img src="img/facebook_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://instagram.com/" target="_blank">
+                <img src="img/instagram_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.tiktok.com/es/" target="_blank">
+                <img src="img/tik-tok_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://web.whatsapp.com/" target="_blank">
+                <img src="img/whatsapp_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.messenger.com/" target="_blank">
+                <img src="img/messenger_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://web.telegram.org/z/" target="_blank">
+                <img src="img/telegram_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div> <!-- -->
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://twitter.com/" target="_blank">
+                <img src="img/twitter_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.snapchat.com/l/es/download" target="_blank">
+                <img src="img/snapchat_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://mx.linkedin.com/" target="_blank">
+                <img src="img/linkedin_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Entretenimiento -->
+
+<div class="modal" id="modalEntretenimiento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen text-white">
+    <div class="modal-content mimodal">
+      <div class="modal-header" style="border-bottom: 0px solid #dee2e6;">
+        <h5 class="modal-title display-6" id="exampleModalLabel">Entretenimiento</h5>
+        <a class="nav-link text-white" href="#" data-bs-dismiss="modal">
+          <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="modal" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.youtube.com/" target="_blank">
+                <img src="img/youtube_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div> <!-- -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Utilidades -->
+
+<div class="modal" id="modalUtilidades" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen text-white">
+    <div class="modal-content mimodal">
+      <div class="modal-header" style="border-bottom: 0px solid #dee2e6;">
+        <h5 class="modal-title display-6" id="exampleModalLabel">Utilidades</h5>
+        <a class="nav-link text-white" href="#" data-bs-dismiss="modal">
+          <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="modal" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.ilovepdf.com/es" target="_blank">
+                <img src="img/ilovepdf_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div> <!-- -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Productividad -->
+
+<div class="modal" id="modalProductividad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen text-white">
+    <div class="modal-content mimodal">
+      <div class="modal-header" style="border-bottom: 0px solid #dee2e6;">
+        <h5 class="modal-title display-6" id="exampleModalLabel">Productividad</h5>
+        <a class="nav-link text-white" href="#" data-bs-dismiss="modal">
+          <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="modal" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.gmail.com/" target="_blank">
+                <img src="img/gmail_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div> <!-- -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Compras -->
+
+<div class="modal" id="modalCompras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen text-white">
+    <div class="modal-content mimodal">
+      <div class="modal-header" style="border-bottom: 0px solid #dee2e6;">
+        <h5 class="modal-title display-6" id="exampleModalLabel">Compras</h5>
+        <a class="nav-link text-white" href="#" data-bs-dismiss="modal">
+          <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="modal" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.mercadolibre.com.mx/" target="_blank">
+                <img src="img/mercadolibre_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div> <!-- -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Creatividad -->
+
+<div class="modal" id="modalCreatividad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen text-white">
+    <div class="modal-content mimodal">
+      <div class="modal-header" style="border-bottom: 0px solid #dee2e6;">
+        <h5 class="modal-title display-6" id="exampleModalLabel">Creatividad</h5>
+        <a class="nav-link text-white" href="#" data-bs-dismiss="modal">
+          <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="modal" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.photopea.com/" target="_blank">
+                <img src="img/photopea_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div> <!-- -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lectura -->
+
+<div class="modal" id="modalLectura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen text-white">
+    <div class="modal-content mimodal">
+      <div class="modal-header" style="border-bottom: 0px solid #dee2e6;">
+        <h5 class="modal-title display-6" id="exampleModalLabel">Lectura</h5>
+        <a class="nav-link text-white" href="#" data-bs-dismiss="modal">
+          <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="modal" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://flipboard.com/" target="_blank">
+                <img src="img/flipboard_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div> <!-- -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Formación -->
+
+<div class="modal" id="modalFormacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen text-white">
+    <div class="modal-content mimodal">
+      <div class="modal-header" style="border-bottom: 0px solid #dee2e6;">
+        <h5 class="modal-title display-6" id="exampleModalLabel">Formación</h5>
+        <a class="nav-link text-white" href="#" data-bs-dismiss="modal">
+          <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="modal" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.udemy.com/" target="_blank">
+                <img src="img/udemy_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div> <!-- -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Viajes -->
+
+<div class="modal" id="modalViajes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen text-white">
+    <div class="modal-content mimodal">
+      <div class="modal-header" style="border-bottom: 0px solid #dee2e6;">
+        <h5 class="modal-title display-6" id="exampleModalLabel">Viajes</h5>
+        <a class="nav-link text-white" href="#" data-bs-dismiss="modal">
+          <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="modal" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-2">
+              <a class="nav-link" href="https://www.airbnb.mx/" target="_blank">
+                <img src="img/airbnb_s.png" class="img-fluid"/>
+              </a>
+            </div>
+
+          </div> <!-- -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/clock.js"></script>
+        <script src="js/swiper-bundle.js"></script>
+        <script src="js/config-swiper.js"></script>
+
+    </body>
+</html>
